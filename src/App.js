@@ -1,5 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+//import { v4 as uuidv4 } from 'uuid';
+//import { ResultsListProvider } from './ResultsList';
+//import ListOfResults from './ListOfResults';
+
+let currentTime = 0;
 
 function Scramble() {
   // possible notations in a scramble
@@ -54,6 +59,7 @@ const Timer = () => {
     const seconds = Math.floor(miliseconds / 1000);
     const getSeconds = `0${seconds % 60}`.slice(-2);
     const getMinutes = `0${Math.floor(seconds / 60)}`.slice(-2);
+    currentTime = `${getMinutes}:${getSeconds}.${getMiliseconds}`;
 
     return `${getMinutes}:${getSeconds}.${getMiliseconds}`;
   }
@@ -107,7 +113,6 @@ function App() {
         <p>
           <Timer />
         </p>
-        <script src="./timer.js"></script>
       </header>
     </div>
   );
